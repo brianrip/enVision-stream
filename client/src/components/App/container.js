@@ -1,16 +1,17 @@
 import { connect } from 'react-redux';
-import { fetchImages, likeImage } from './actions';
+import { fetchImages, likeImage, fetchRandomImage } from './actions';
 
 import App from './index';
 
-const mapStateToProps = ({ app }) => {
-  return { images: app.images }
+const mapStateToProps = ({ app, user }) => {
+  return { images: app.images, user: user }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchImages: (keywords) => dispatch(fetchImages(keywords)),
-    likeImage: (id) => dispatch(likeImage(id))
+    fetchImages: () => dispatch(fetchImages()),
+    likeImage: (image) => dispatch(likeImage(image)),
+    fetchRandomImage: () => dispatch(fetchRandomImage())
   }
 }
 

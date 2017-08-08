@@ -46,7 +46,8 @@ function fetchAndCreateImages(interest, Image) {
         return {
           foreignId: image.id,
           urls: image.urls,
-          interest: interest._id
+          interest: interest._id,
+          interestTitle: interest.title
         }
       })
 

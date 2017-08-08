@@ -1,11 +1,13 @@
-import { GET_IMAGES } from '../../actionTypes'
+import { ADD_IMAGES, FLASH_MESSAGE } from '../../actionTypes'
 
-const initialState = { images: [] };
+const initialState = { images: [], message: '' };
 
 const app = (state = initialState, action) => {
   switch (action.type) {
-    case GET_IMAGES :
-      return { images: action.images };
+    case ADD_IMAGES :
+      return Object.assign({}, state, { images: action.images });
+    case FLASH_MESSAGE :
+      return Object.assign({}, state, { message: action.message });
     default :
       return state;
   }

@@ -10,12 +10,20 @@ class App extends Component  {
   constructor() {
     super()
     this.state = {
-      instructions: false
+      instructions: false,
     }
   }
 
   componentWillMount() {
-    this.props.fetchImages('snow')
+    this.checkForUser();
+  }
+
+  checkForUser() {
+    if (window.sessionStorage.token) {
+      this.props.fetchImages();
+    } else {
+      this.props.fetchRandomImage();
+    }
   }
 
   toggleInstructions() {
@@ -30,7 +38,8 @@ class App extends Component  {
         <Main images={ this.props.images }
               showInstructions={ this.state.instructions }
               toggleInstructions={ this.toggleInstructions.bind(this) }
-              likeImage={ (id) => this.props.likeImage(id) }
+              likeImage={ (image) => this.props.likeImage(image) }
+              clearUser={ () => this.props.clearUser }
         />
         <Footer />
       </section>

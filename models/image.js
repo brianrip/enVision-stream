@@ -1,4 +1,5 @@
 const uniqueValidator = require('mongoose-unique-validator');
+var random = require('mongoose-simple-random');
 
 const stream = require('getstream-node');
 const StreamMongoose = stream.mongoose;
@@ -20,6 +21,9 @@ module.exports = function(config, mongoose) {
       type: Schema.Types.ObjectId,
       ref: 'Interest',
       required: true
+    },
+    interestTitle: {
+      type: String,
     }
   },
   {
@@ -29,6 +33,7 @@ module.exports = function(config, mongoose) {
   });
 
   schema.plugin(uniqueValidator);
+  schema.plugin(random);
   schema.plugin(StreamMongoose.activity);
 
   schema.methods.createActivity = function() {

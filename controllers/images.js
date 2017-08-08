@@ -17,6 +17,26 @@ module.exports = function(app, mongoose, passport, router) {
 			});
 	});
 
+	router.get('/images/random', passport.authenticate('bearer', { session: false }), (req, res) => {
+		Image.findRandom({}, {}, { limit: 20 }, (err, images) => {
+				if (err) {
+					res.status(400).json({ error: err.message });
+				} else {
+					res.json({ images: images });
+				}
+			});
+	});
+
+	router.get('/images/oneRandom', (req, res) => {
+		Image.findRandom({}, {}, {}, (err, images) => {
+				if (err) {
+					res.status(400).json({ error: err.message });
+				} else {
+					res.json({ images: images });
+				}
+			});
+	});
+
 	router.post('/images', passport.authenticate('bearer', { session: false }), (req, res) => {
 		Image.create(req.body, (err, image) => {
 			if (err) {

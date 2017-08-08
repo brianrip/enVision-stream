@@ -8,19 +8,7 @@ class Entry extends Component {
     this.state = {
       email: '',
       password: '',
-      user: false
     }
-  }
-
-  componentWillMount() {
-    console.log(window.sessionStorage.token);
-    if (window.sessionStorage.token) {
-      this.setState({ user: true })
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    nextProps.user ? this.setState({ user: true }) : null
   }
 
   handleSubmit(e) {
@@ -33,13 +21,13 @@ class Entry extends Component {
 
     this.props.newUser(authData);
     if (target === 'Sign Up') {
-      this.props.toggleInstructions()
+      this.props.toggleInstructions
     }
   }
 
   handleLogout() {
     sessionStorage.clear();
-    this.setState({ user: false })
+    this.props.clearUser();
   }
 
   renderLogout() {
@@ -78,9 +66,10 @@ class Entry extends Component {
   }
 
   render() {
+    const token = window.sessionStorage.token
     return(
       <section className="root">
-        { this.state.user ? this.renderLogout() : this.newSession() }
+        { token ? this.renderLogout() : this.newSession() }
       </section>
     )
   }

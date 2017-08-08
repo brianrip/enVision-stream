@@ -20,8 +20,8 @@ const renderImages = (images, likeImage) => {
     return (
       <Image
         urls={ image.urls }
-        key={ image.id || id }
-        likeImage={ () => likeImage(image.id || id) }
+        key={ image._id }
+        likeImage={ () => likeImage(image) }
       />
     );
   });
@@ -47,11 +47,11 @@ const Main = ({ images, showInstructions, toggleInstructions, likeImage }) => {
   )
 }
 
-Main.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    urls: PropTypes.object.isRequired
-  })).isRequired
-};
+// Main.propTypes = {
+//   images: PropTypes.arrayOf(PropTypes.shape({
+//     id: PropTypes.string.isRequired,
+//     urls: PropTypes.object.isRequired
+//   })).isRequired
+// };
 
 export default Main;
