@@ -1,0 +1,50 @@
+.root {
+}
+
+form {
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+input {
+  border: 1px solid #d8d8d8;
+  outline: none;
+  padding: 10px;
+  margin: 10px 5px;
+  border-radius: 3px;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: #7f7f7f !important;
+}
+
+button {
+  padding: 10px;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #868686;
+  margin: 10px 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background: #6f6f6f;
+  color: white;
+  border: 1px solid #fff;
+}
+
+.log-out {
+  color: #aaa;
+  position: absolute;
+  right: 25px;
+  text-decoration: none;
+  top: 25px;
+}
+
+.log-out:hover {
+  color: #6f6f6f;
+}

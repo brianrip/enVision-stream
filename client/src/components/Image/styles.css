@@ -1,0 +1,19 @@
+.grid-item {
+  margin-bottom: 20px;
+}
+
+.grid-image {
+  border-radius: 5px;
+}
+
+.grid-item button {
+  background: black;
+  border: none;
+  color: white;
+  left: 0;
+  position: absolute;
+}
+
+.grid-item button:focus {
+  outline: none;
+}

@@ -1,0 +1,17 @@
+header {
+  border-bottom: 1px solid #ccc;
+  padding: 25px;
+}
+
+.title {
+  color: #c3c3c3;
+  font-weight: 100;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.title a {
+  text-decoration: none;
+  color: #c3c3c3;
+}
